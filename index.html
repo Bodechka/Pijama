@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158781135-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158781135-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="modal fade" id="Order" tabindex="-1" role="dialog" aria-labelledby="form" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form method="POST" action="/mail.php" onsubmit="return false">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="text-center">Заказ</h2>
+                        <label for="#name">Имя : <span class="required">*</span></label>
+                        <input class="form-control" id="name" type="text" placeholder="Имя">
+                        
+                        <label for="#name">Номер телефона : <span class="required">*</span></label>
+                        <input class="form-control" id="number" type="text" placeholder="0980012345">
+
+                        <label for="#color">Цвет :</label>
+                        <select class="form-control" id="color">
+                            <option selected hidden disabled>Не выбрано</option>
+                            <option value="Розовый">Розовый</option>
+                            <option value="Пудра">Пудра</option>
+                            <option value="Бордо">Бордо</option>
+                            <option value="Серо-голубой">Серо-голубой</option>
+                            <option value="Бежевый">Бежевый</option>
+                            <option value="Бутылочный">Бутылочный</option>
+                            <option value="Каппучино">Каппучино</option>
+                            <option value="Черный">Черный</option>
+                        </select>
+
+                        <label for="#size">Размер :</label>
+                        <select class="form-control" id="size">
+                            <option selected hidden disabled>Не выбрано</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="Получить консультацию">Получить консультацию</option>
+                        </select>
+                        
+                        <div class="form-button text-center">
+                            <button type="submit" class="btn order-button">Отправить</button>
+                        </div>     
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <header>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-md-6 col-12 menu-wrap">
+                    <button class="menu-icon"><img src="img/menu.png"></button>
+                    <nav>
+                        <ul class="menu d-flex align-items-center justify-content-between">
+                            <li><a href="#main">Главная</a></li>
+                            <li><a href="#prices">Цена</a></li>
+                            <li><a href="#rewievs">Отзывы</a></li>
+                            <li><a href="#photo">Фото</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xl-3 col-md-3 col-12 delivery-wrap">
+                    <div class="delivery">
+                        Доставка 1-2 дня<br/>
+                        Оплата при получении
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-3 col-12 contacts-wrap">
+                    <div class="contacts">
+                        <div class="tel">
+                            <a href="tel:+380976211410">+38 (097) 621 1410</a>
+                        </div>
+                        <div class="schedule">
+                            Пн-Вс. с 9:00 до 22:00 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="main" class="discount-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 offset-xl-1 d-flex flex-column align-items-center col-md-5">
+                    <p class="discount-title text-center">
+                        Женские бархатные пижамки
+                    </p>
+                    <div class="discount-price">
+                        <p>Старая цена - <s>999 грн</s></p>
+                        <p>Новая цена - 670 грн</p>
+                    </div>
+                    <button type="button" class="btn order-button desktop-button" data-toggle="modal" data-target="#Order">Получить скидку</button>
+                </div>
+                <div class="col-xl-6 offset-xl-1 col-md-7 text-center justify-content-center">
+                    <img class="first-img" src="img/first.jpg" width="535px" alt="">
+                </div>
+                <div class="mobile-discount-button col-12 text-center">
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Получить скидку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="prices" class="our-pijams-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="text-center">Наши пижамы</h2>
+                </div>
+            </div>
+
+            <!-- <div id="ourPijams" class="carousel slide" data-ride="carousel" data-interval="false">
+                <ol class="carousel-indicators">
+                  <li data-target="#ourPijams" data-slide-to="0" class="active"></li>
+                  <li data-target="#ourPijams" data-slide-to="1"></li>
+                  <li data-target="#ourPijams" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <div class="pijama-item text-center col-xl-4 col-md-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(1).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Розовый</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4 col-md-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(2).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Пудра</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4 col-md-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(3).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Бордовый</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-around">
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(4).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Серо-голубой</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(5).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Бежевый</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(6).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Бутылочный</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(7).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Капучино</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(8).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Черный</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <a class="carousel-control-prev" href="#ourPijams" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#ourPijams" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div> -->
+
+            <div class="row multiple-items justify-content-center">
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(1).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Розовый</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(2).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Пудра</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(3).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Бордовый</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(4).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Серо-голубой</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(5).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Бежевый</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(6).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Бутылочный</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(7).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Капучино</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(8).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Черный</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Майка / штаны / шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">670 грн.&nbsp;&nbsp;<s>999 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+            </div>
+
+            <div class="row multiple-items justify-content-center our-bathrobes">
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(9).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Розовый</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(10).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Пудра</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(11).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Бордо</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(12).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Серо-голубой</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(13).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Бежевый</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(14).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Серый</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(15).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Капучино</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+                <div class="pijama-item text-center col-xl-4 col-md-4">
+                    <div class="pijama-image justify-content-center">
+                        <img src="img/file(16).jpg" alt="Pijama">
+                    </div>
+                    <p class="pijama-item-title">Черный</p>
+                    <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                    <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                </div>
+            </div>
+            
+            <!-- <div id="ourBathrobes" class="carousel slide" data-ride="carousel" data-interval="false">
+                <ol class="carousel-indicators">
+                  <li data-target="#ourBathrobes" data-slide-to="0" class="active"></li>
+                  <li data-target="#ourBathrobes" data-slide-to="1"></li>
+                  <li data-target="#ourBathrobes" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(9).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Розовый</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(10).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Пудра</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(11).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Бордо</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-around">
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(12).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Серо-голубой</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(13).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Бежевый</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(14).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Серый</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(15).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Капучино</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                            <div class="pijama-item text-center col-xl-4">
+                                <div class="pijama-image">
+                                    <img src="img/file(16).jpg" alt="Pijama">
+                                </div>
+                                <p class="pijama-item-title">Черный</p>
+                                <p class="pijama-item-descr">Бархатная пижама<br/>Халат / Майка / Штаны / Шорты<br/>S(40-42) / M(44-46) / L(48-50)</p>
+                                <p class="pijama-price">980 грн.&nbsp;&nbsp;<s>1225 грн.</s></p>
+                                <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <a class="carousel-control-prev" href="#ourBathrobes" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#ourBathrobes" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="advantages-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 text-center">
+                    <h2>Почему стоит заказать именно у нас?</h2>
+                    <div class="row justify-content-center">
+                        <div class="advantage col-xl-4 flex-column d-flex align-items-center col-md-6 col-sm-6">
+                            <div class="circle d-flex justify-content-center align-items-center">
+                                <svg width="46px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve"><g> <path d="M32,0c-1.021,0-2.026,0.076-3.015,0.21C27.953,0.072,26.972,0,26,0c-4.883,0-9.449,1.572-13.33,4.29 c-0.001,0.001-0.003,0.002-0.004,0.003c-1.968,1.379-3.758,3.055-5.326,4.97C7.293,9.306,7.258,9.356,7.22,9.407 c-1.484,1.838-2.76,3.896-3.791,6.122c-0.028,0.05-0.051,0.1-0.07,0.155c-0.71,1.556-1.303,3.191-1.759,4.895 c-0.045,0.096-0.065,0.201-0.078,0.311C0.861,23.465,0.5,26.185,0.5,29c0,4.403,0.871,8.577,2.422,12.319 C2.936,41.361,2.95,41.4,2.97,41.439c0.928,2.214,2.097,4.273,3.466,6.136c0.037,0.051,0.067,0.105,0.113,0.148 c1.389,1.864,2.982,3.524,4.738,4.94c0.051,0.057,0.113,0.099,0.176,0.143C15.59,56.076,20.6,58,26,58 c0.972,0,1.953-0.072,2.985-0.21C29.974,57.924,30.979,58,32,58c14.061,0,25.5-13.009,25.5-29S46.061,0,32,0z M21.419,2.625 c-0.318,0.166-0.632,0.338-0.943,0.518c-0.189,0.109-0.38,0.216-0.566,0.33C19.636,3.642,19.368,3.82,19.1,4h-1.926 c1.462-0.684,2.988-1.224,4.579-1.559C21.64,2.498,21.532,2.566,21.419,2.625z M11.36,46H7.773c-0.882-1.246-1.665-2.585-2.345-4 h3.788c0.157,0.355,0.319,0.706,0.488,1.052c0.072,0.148,0.148,0.293,0.222,0.439c0.206,0.404,0.42,0.801,0.642,1.192 c0.081,0.144,0.16,0.289,0.243,0.431C10.988,45.415,11.173,45.708,11.36,46z M4.968,17h3.827c-0.176,0.438-0.342,0.881-0.498,1.329 c-0.043,0.123-0.086,0.245-0.128,0.368C8.024,19.127,7.89,19.561,7.763,20H3.857C4.175,18.969,4.547,17.969,4.968,17z M2.5,29 c0-0.674,0.036-1.338,0.078-2h3.987c-0.001,0.016-0.001,0.032-0.002,0.048C6.526,27.694,6.5,28.343,6.5,29 c0,0.335,0.012,0.667,0.022,1H2.539C2.528,29.666,2.5,29.337,2.5,29z M6.636,32c0.038,0.421,0.087,0.839,0.141,1.255 c0.004,0.03,0.006,0.061,0.01,0.092C6.861,33.903,6.951,34.454,7.052,35H3.108c-0.195-0.982-0.349-1.981-0.448-3H6.636z M7.256,22 c-0.026,0.119-0.048,0.239-0.073,0.358c-0.027,0.131-0.054,0.261-0.08,0.392c-0.122,0.628-0.231,1.261-0.316,1.903 c-0.004,0.03-0.006,0.061-0.01,0.092C6.766,24.83,6.759,24.915,6.748,25H2.779c0.132-1.018,0.299-2.022,0.528-3H7.256z M7.495,37 c0.031,0.123,0.06,0.247,0.093,0.37c0.011,0.043,0.021,0.087,0.033,0.13c0.165,0.61,0.35,1.21,0.549,1.802 c0.041,0.123,0.085,0.245,0.128,0.368c0.038,0.11,0.075,0.22,0.114,0.329H4.558c-0.379-0.971-0.705-1.973-0.983-3H7.495z M10.811,12.885c-0.083,0.142-0.162,0.287-0.243,0.431c-0.222,0.391-0.436,0.789-0.642,1.192c-0.074,0.146-0.15,0.291-0.222,0.439 C9.695,14.965,9.686,14.982,9.678,15H5.929c0.757-1.427,1.629-2.762,2.596-4h3.503c-0.122,0.175-0.245,0.348-0.363,0.526 C11.37,11.969,11.084,12.422,10.811,12.885z M13.731,6h2.763C16.247,6.216,16,6.434,15.759,6.66 c-0.203,0.192-0.4,0.391-0.598,0.589c-0.196,0.197-0.39,0.396-0.58,0.6c-0.186,0.199-0.373,0.396-0.554,0.6 C13.868,8.629,13.716,8.815,13.561,9h-3.302C11.333,7.883,12.492,6.876,13.731,6z M9.324,48h3.432 c0.113,0.148,0.225,0.297,0.341,0.442c0.302,0.379,0.612,0.749,0.931,1.109c0.181,0.205,0.367,0.402,0.554,0.6 c0.191,0.203,0.384,0.403,0.58,0.6c0.081,0.082,0.159,0.169,0.241,0.249h-3.008C11.297,50.101,10.27,49.097,9.324,48z M21.753,55.559c-2.293-0.483-4.46-1.369-6.47-2.559h2.419c0.125,0.096,0.253,0.187,0.379,0.281 c0.213,0.158,0.424,0.317,0.641,0.468c0.389,0.271,0.785,0.531,1.187,0.778c0.187,0.115,0.377,0.221,0.566,0.33 c0.311,0.18,0.625,0.353,0.943,0.518C21.532,55.434,21.64,55.502,21.753,55.559z M32,56c-0.794,0-1.579-0.047-2.354-0.136 l-0.397-0.055c-0.049-0.007-0.098-0.015-0.147-0.021c-0.348-0.049-0.693-0.107-1.036-0.173c-0.025-0.005-0.049-0.01-0.074-0.015 c-0.335-0.066-0.667-0.139-0.996-0.221c-0.044-0.011-0.087-0.023-0.13-0.035c-0.309-0.079-0.616-0.163-0.92-0.256 c-0.082-0.025-0.162-0.054-0.243-0.08c-0.265-0.084-0.529-0.17-0.789-0.265c-0.185-0.067-0.367-0.142-0.549-0.214 c-0.156-0.061-0.313-0.119-0.467-0.184c-5.376-2.276-9.834-6.748-12.546-12.464c-0.024-0.052-0.047-0.104-0.071-0.156 c-0.146-0.312-0.288-0.628-0.423-0.948c-0.053-0.125-0.102-0.252-0.153-0.378c-0.102-0.25-0.202-0.501-0.298-0.755 c-0.06-0.161-0.117-0.324-0.175-0.487c-0.079-0.223-0.157-0.447-0.232-0.674c-0.06-0.183-0.117-0.367-0.173-0.552 c-0.065-0.212-0.128-0.425-0.189-0.64c-0.055-0.195-0.107-0.391-0.158-0.587c-0.055-0.21-0.107-0.422-0.157-0.635 c-0.048-0.201-0.094-0.403-0.137-0.607c-0.046-0.213-0.088-0.428-0.129-0.643c-0.039-0.204-0.078-0.409-0.113-0.614 c-0.038-0.222-0.071-0.446-0.104-0.671c-0.03-0.201-0.06-0.401-0.086-0.604c-0.031-0.24-0.055-0.483-0.08-0.725 c-0.02-0.189-0.042-0.377-0.058-0.567c-0.024-0.278-0.04-0.558-0.056-0.839c-0.009-0.158-0.022-0.314-0.029-0.472 C8.511,29.889,8.5,29.446,8.5,29s0.011-0.889,0.029-1.33c0.007-0.158,0.02-0.315,0.029-0.472c0.016-0.28,0.032-0.561,0.056-0.839 c0.016-0.19,0.038-0.378,0.058-0.567c0.025-0.242,0.05-0.485,0.08-0.725c0.026-0.202,0.057-0.403,0.086-0.604 c0.033-0.224,0.067-0.448,0.104-0.671c0.035-0.206,0.074-0.41,0.113-0.614c0.041-0.215,0.084-0.43,0.129-0.643 c0.044-0.203,0.09-0.405,0.137-0.607c0.05-0.213,0.103-0.424,0.157-0.635c0.051-0.197,0.103-0.392,0.158-0.587 c0.06-0.215,0.124-0.428,0.189-0.64C9.884,19.884,9.94,19.699,10,19.517c0.074-0.226,0.152-0.45,0.232-0.674 c0.058-0.163,0.114-0.326,0.175-0.487c0.095-0.254,0.196-0.505,0.298-0.755c0.051-0.126,0.1-0.253,0.153-0.378 c0.135-0.32,0.277-0.635,0.423-0.948c0.024-0.052,0.046-0.105,0.071-0.156c2.712-5.717,7.171-10.189,12.546-12.464 c0.154-0.065,0.311-0.122,0.467-0.184c0.183-0.072,0.365-0.147,0.549-0.214c0.261-0.094,0.525-0.181,0.789-0.265 c0.081-0.026,0.162-0.055,0.243-0.08c0.304-0.093,0.611-0.177,0.92-0.256c0.044-0.011,0.087-0.024,0.13-0.035 c0.329-0.082,0.661-0.155,0.996-0.221c0.025-0.005,0.049-0.01,0.074-0.015c0.343-0.066,0.688-0.124,1.036-0.173 c0.049-0.007,0.098-0.015,0.147-0.021l0.397-0.055C30.421,2.047,31.206,2,32,2c12.958,0,23.5,12.112,23.5,27S44.958,56,32,56z"></path> <path d="M32,8.476c0.606,0,1.219,0.036,1.818,0.105c0.04,0.005,0.079,0.007,0.117,0.007c0.501,0,0.933-0.375,0.992-0.884 c0.064-0.548-0.329-1.045-0.877-1.109c-0.673-0.079-1.358-0.119-2.068-0.119c-0.004,0-0.008,0-0.012,0l-0.013,1v-1 c-0.553,0-0.979,0.447-0.979,1C30.979,8.029,31.447,8.476,32,8.476z"></path> <path d="M24.329,10.337c0.152,0,0.308-0.035,0.453-0.109c0.558-0.284,1.133-0.538,1.709-0.753c0.517-0.193,0.779-0.77,0.586-1.287 c-0.193-0.518-0.767-0.781-1.287-0.586c-0.646,0.242-1.291,0.526-1.916,0.845c-0.492,0.25-0.688,0.853-0.437,1.345 C23.614,10.138,23.965,10.337,24.329,10.337z"></path> <path d="M49.135,23.292c0.113,0.454,0.521,0.757,0.969,0.757c0.081,0,0.162-0.01,0.244-0.03c0.536-0.135,0.861-0.678,0.727-1.213 c-0.167-0.665-0.364-1.332-0.587-1.982c-0.18-0.522-0.748-0.801-1.271-0.621c-0.522,0.179-0.801,0.748-0.622,1.271 C48.8,22.07,48.981,22.682,49.135,23.292z"></path> <path d="M47.731,15.277c-0.387-0.571-0.805-1.13-1.242-1.662c-0.352-0.426-0.98-0.487-1.408-0.137 c-0.426,0.351-0.487,0.981-0.137,1.408c0.398,0.484,0.779,0.993,1.131,1.513c0.193,0.286,0.509,0.439,0.829,0.439 c0.193,0,0.388-0.056,0.56-0.172C47.921,16.355,48.041,15.734,47.731,15.277z"></path> <path d="M32,49.524c-0.621,0-1.247-0.037-1.857-0.11c-0.561-0.056-1.047,0.327-1.112,0.875c-0.065,0.548,0.326,1.046,0.874,1.112 c0.69,0.082,1.396,0.124,2.096,0.124h0.084c0.553,0,0.958-0.448,0.958-1S32.553,49.524,32,49.524z"></path> <path d="M45.021,43.02c-0.397,0.488-0.82,0.96-1.259,1.404c-0.388,0.393-0.384,1.026,0.01,1.414 c0.194,0.192,0.448,0.289,0.702,0.289c0.258,0,0.516-0.099,0.712-0.297c0.482-0.489,0.948-1.009,1.386-1.546 c0.349-0.429,0.284-1.059-0.145-1.407S45.37,42.593,45.021,43.02z"></path> <path d="M39.252,47.754c-0.555,0.285-1.129,0.54-1.706,0.757c-0.517,0.194-0.778,0.771-0.583,1.288 c0.15,0.401,0.531,0.648,0.936,0.648c0.117,0,0.236-0.021,0.353-0.065c0.648-0.244,1.293-0.53,1.915-0.849 c0.491-0.252,0.685-0.855,0.433-1.346C40.348,47.696,39.745,47.5,39.252,47.754z"></path> <path d="M41.857,9.45c-0.585-0.382-1.194-0.733-1.812-1.044c-0.494-0.249-1.095-0.05-1.343,0.443 c-0.249,0.493-0.051,1.095,0.442,1.343c0.552,0.278,1.097,0.592,1.62,0.933c0.168,0.11,0.357,0.163,0.545,0.163 c0.326,0,0.646-0.16,0.839-0.454C42.451,10.372,42.32,9.752,41.857,9.45z"></path> <path d="M50.833,27.968c-0.553,0-1,0.479-1,1.032c0,0.618-0.023,1.236-0.07,1.839c-0.043,0.551,0.369,1.032,0.92,1.074 c0.026,0.002,0.053,0.003,0.078,0.003c0.518,0,0.955-0.398,0.996-0.923c0.051-0.654,0.076-1.325,0.076-1.994v-0.064 C51.833,28.384,51.386,27.968,50.833,27.968z"></path> <path d="M14.167,29c0-0.623,0.025-1.256,0.074-1.88c0.043-0.551-0.368-1.032-0.919-1.076c-0.544-0.036-1.032,0.368-1.075,0.918 c-0.053,0.676-0.08,1.362-0.08,2.037v0.021c0,0.552,0.447,0.989,1,0.989S14.167,29.552,14.167,29z"></path> <path d="M49.901,35.783c-0.522-0.175-1.09,0.105-1.267,0.628c-0.202,0.598-0.432,1.193-0.683,1.77 c-0.221,0.506,0.012,1.096,0.518,1.316c0.13,0.057,0.266,0.083,0.398,0.083c0.387,0,0.754-0.225,0.918-0.601 c0.273-0.629,0.523-1.278,0.743-1.93C50.706,36.527,50.425,35.96,49.901,35.783z"></path> <path d="M15.55,18.465c-0.51-0.226-1.096,0.008-1.317,0.514c-0.274,0.626-0.526,1.275-0.748,1.929 c-0.177,0.523,0.104,1.091,0.626,1.269c0.106,0.036,0.215,0.053,0.321,0.053c0.417,0,0.806-0.263,0.947-0.679 c0.203-0.6,0.434-1.195,0.686-1.768C16.286,19.277,16.056,18.687,15.55,18.465z"></path> <path d="M17.902,41.567c-0.31-0.458-0.93-0.578-1.389-0.269c-0.457,0.31-0.577,0.931-0.268,1.389 c0.392,0.579,0.808,1.139,1.238,1.664c0.198,0.241,0.484,0.366,0.774,0.366c0.223,0,0.447-0.074,0.633-0.227 c0.428-0.351,0.489-0.98,0.14-1.408C18.64,42.605,18.26,42.095,17.902,41.567z"></path> <path d="M14.855,34.668c-0.134-0.536-0.679-0.863-1.212-0.729c-0.536,0.133-0.862,0.676-0.729,1.212 c0.166,0.666,0.363,1.333,0.585,1.983c0.142,0.416,0.53,0.677,0.946,0.677c0.107,0,0.216-0.018,0.323-0.054 c0.522-0.179,0.802-0.747,0.623-1.27C15.187,35.892,15.008,35.28,14.855,34.668z"></path> <path d="M18.846,12.14c-0.482,0.486-0.95,1.006-1.39,1.544c-0.35,0.428-0.286,1.058,0.142,1.407 c0.186,0.152,0.41,0.226,0.632,0.226c0.29,0,0.578-0.125,0.775-0.367c0.399-0.489,0.823-0.96,1.261-1.401 c0.389-0.392,0.387-1.025-0.006-1.414C19.868,11.746,19.235,11.747,18.846,12.14z"></path> <path d="M24.818,47.791c-0.552-0.28-1.097-0.596-1.618-0.938c-0.462-0.303-1.081-0.172-1.385,0.289 c-0.302,0.462-0.173,1.082,0.289,1.384c0.583,0.382,1.191,0.734,1.81,1.048c0.145,0.074,0.299,0.108,0.451,0.108 c0.365,0,0.717-0.2,0.893-0.547C25.508,48.643,25.312,48.041,24.818,47.791z"></path> <path d="M37.896,28.805c-1.01-0.5-2.146-0.916-3.375-1.236c-0.71-0.186-1.219-0.319-1.526-0.401v-8.936 c0.454,0.09,0.886,0.223,1.291,0.396c1.654,0.677,2.625,1.645,3.739,2.877v2.082c0,0.6,0.387,0.987,0.987,0.987 S40,24.187,40,23.587v-6.169c0-0.6-0.388-0.987-0.987-0.987s-0.987,0.388-0.987,0.987l0,1.315 c-0.229-0.179-0.075-0.385-0.402-0.618c-1.259-0.902-2.814-1.529-4.629-1.866V14.82c0-0.6-0.387-0.987-0.987-0.987 s-0.987,0.388-0.987,0.987v1.289c-2.561,0.043-4.482,0.631-5.713,1.75c-1.293,1.177-1.949,2.765-1.949,4.721 c0,1.037,0.301,1.968,0.894,2.766c0.576,0.776,1.401,1.433,2.453,1.952c0.951,0.471,2.401,0.978,4.316,1.509v9.564 c-0.52-0.089-1-0.216-1.432-0.38c-1.771-0.676-2.56-1.095-3.615-2.241v-2.243c0-0.6-0.388-0.987-0.987-0.987S24,32.907,24,33.507 v6.169c0,0.6,0.387,0.987,0.987,0.987s0.987-0.388,0.987-0.987v-1.316c1.727,1.385,2.996,1.723,5.047,2.005v1.405 c0,0.6,0.388,0.987,0.987,0.987s0.987-0.388,0.987-0.987v-1.287c2.586-0.031,4.611-0.649,6.023-1.837 c1.476-1.24,2.224-2.932,2.224-5.025c0-1.101-0.301-2.063-0.894-2.863C39.772,29.981,38.947,29.325,37.896,28.805z M31.021,26.617 c-0.344-0.102-0.722-0.212-1.132-0.329c-0.656-0.188-1.365-0.452-2.107-0.787c-0.696-0.313-1.292-0.76-1.771-1.328 c-0.456-0.539-0.677-1.155-0.677-1.885c0-1.179,0.463-2.148,1.416-2.965c0.916-0.784,2.352-1.2,4.272-1.24V26.617z M38.375,37.88 c-0.017,0.014-0.038,0.024-0.055,0.037c0.145-0.118,0.285-0.24,0.414-0.367C38.622,37.664,38.502,37.773,38.375,37.88z M37.654,37.175c-1.068,0.856-2.635,1.305-4.658,1.334v-9.165l1.574,0.439c0.75,0.209,1.507,0.484,2.25,0.818 c0.696,0.313,1.292,0.761,1.771,1.327c0.456,0.541,0.678,1.157,0.678,1.886C39.269,35.204,38.74,36.304,37.654,37.175z"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                            </div>
+                            <p>Выгодная цена</p>
+                            <p>Предлагаем лучшее<br/>соотношение цены и качества</p>
+                        </div>
+                        <div class="advantage col-xl-4 flex-column d-flex align-items-center col-md-6 col-sm-6">
+                            <div class="circle d-flex justify-content-center align-items-center">
+                                <svg width="46px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 503.607 503.607" style="enable-background:new 0 0 503.607 503.607;" xml:space="preserve"><g> <g> <g> <path d="M176.357,209.836c-16.999,0-32.127,8.591-42.084,21.753c-9.955-13.163-25.078-21.753-42.077-21.753 c-49.511,0-67.141,61.416-31.423,98.022c13.603,13.956,65.013,65.252,68.226,67.916c3.313,2.746,8.167,2.542,11.237-0.473 c1.609-1.58,5.979-5.884,10.572-10.416c6.815-6.725,13.784-13.617,20.448-20.229c18.6-18.456,31.724-31.646,36.655-36.936 C243.39,269.673,225.981,209.836,176.357,209.836z M195.634,296.272c-4.714,5.057-17.809,18.219-36.201,36.467 c-6.651,6.6-13.61,13.482-20.414,20.196c-1.649,1.627-3.269,3.224-4.741,4.676c-14.068-13.809-50.851-50.563-61.486-61.474 c-26.146-26.796-13.883-69.515,19.405-69.515c15.032,0,28.348,10.354,34.302,24.987c2.837,6.973,12.711,6.973,15.549,0 c5.953-14.63,19.276-24.987,34.31-24.987C209.859,226.623,221.921,268.081,195.634,296.272z"></path> <path d="M468.211,67.147H35.395C15.844,67.147,0,82.992,0,102.543v56.933v241.588c0,19.551,15.844,35.395,35.395,35.395h432.816 c19.551,0,35.395-15.844,35.395-35.395V159.475v-56.933C503.607,82.992,487.762,67.147,468.211,67.147z M16.787,102.543 c0-10.28,8.329-18.608,18.608-18.608h432.816c10.28,0,18.608,8.329,18.608,18.608v48.539H16.787V102.543z M468.211,419.672 H35.395c-10.28,0-18.608-8.329-18.608-18.608V167.869H486.82v233.195C486.82,411.343,478.491,419.672,468.211,419.672z"></path> <path d="M360.918,251.803c0-18.544-15.03-33.574-33.574-33.574c-18.543,0-33.574,15.03-33.574,33.574s15.03,33.574,33.574,33.574 C345.888,285.377,360.918,270.347,360.918,251.803z M310.557,251.803c0-9.272,7.515-16.787,16.787-16.787 c9.272,0,16.787,7.515,16.787,16.787c0,9.272-7.514,16.787-16.787,16.787C318.072,268.59,310.557,261.076,310.557,251.803z"></path> <path d="M411.279,302.164c-18.543,0-33.574,15.03-33.574,33.574c0,18.544,15.03,33.574,33.574,33.574 c18.544,0,33.574-15.03,33.574-33.574C444.852,317.194,429.822,302.164,411.279,302.164z M411.279,352.525 c-9.272,0-16.787-7.515-16.787-16.787c0-9.272,7.515-16.787,16.787-16.787c9.272,0,16.787,7.515,16.787,16.787 C428.066,345.01,420.551,352.525,411.279,352.525z"></path> <path d="M424.708,219.908c-3.708-2.781-8.969-2.03-11.751,1.679L312.236,355.882c-2.781,3.708-2.03,8.969,1.679,11.751 c3.708,2.781,8.969,2.03,11.751-1.679l100.721-134.295C429.168,227.951,428.417,222.689,424.708,219.908z"></path> </g> </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                            </div>
+                            <p>Персональные бонусы</p>
+                            <p>При крупном заказе делаем<br/>индивидуальные предложения<br/>и дарим подарки</p>
+                        </div>
+                        <div class="advantage col-xl-4 flex-column d-flex align-items-center col-md-6 col-sm-6">
+                            <div class="circle d-flex justify-content-center align-items-center">
+                                <svg width="46px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve"><g> <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> <path d="M31,26.021V15.879c0-0.553-0.448-1-1-1s-1,0.447-1,1v10.142c-1.399,0.364-2.494,1.459-2.858,2.858H19c-0.552,0-1,0.447-1,1 s0.448,1,1,1h7.142c0.447,1.72,2,3,3.858,3c2.206,0,4-1.794,4-4C34,28.02,32.72,26.468,31,26.021z M30,31.879c-1.103,0-2-0.897-2-2 s0.897-2,2-2s2,0.897,2,2S31.103,31.879,30,31.879z"></path> <path d="M30,9.879c0.552,0,1-0.447,1-1v-1c0-0.553-0.448-1-1-1s-1,0.447-1,1v1C29,9.432,29.448,9.879,30,9.879z"></path> <path d="M30,49.879c-0.552,0-1,0.447-1,1v1c0,0.553,0.448,1,1,1s1-0.447,1-1v-1C31,50.326,30.552,49.879,30,49.879z"></path> <path d="M52,28.879h-1c-0.552,0-1,0.447-1,1s0.448,1,1,1h1c0.552,0,1-0.447,1-1S52.552,28.879,52,28.879z"></path> <path d="M9,28.879H8c-0.552,0-1,0.447-1,1s0.448,1,1,1h1c0.552,0,1-0.447,1-1S9.552,28.879,9,28.879z"></path> <path d="M44.849,13.615l-0.707,0.707c-0.391,0.391-0.391,1.023,0,1.414c0.195,0.195,0.451,0.293,0.707,0.293 s0.512-0.098,0.707-0.293l0.707-0.707c0.391-0.391,0.391-1.023,0-1.414S45.24,13.225,44.849,13.615z"></path> <path d="M14.444,44.021l-0.707,0.707c-0.391,0.391-0.391,1.023,0,1.414c0.195,0.195,0.451,0.293,0.707,0.293 s0.512-0.098,0.707-0.293l0.707-0.707c0.391-0.391,0.391-1.023,0-1.414S14.834,43.631,14.444,44.021z"></path> <path d="M45.556,44.021c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l0.707,0.707c0.195,0.195,0.451,0.293,0.707,0.293 s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L45.556,44.021z"></path> <path d="M15.151,13.615c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l0.707,0.707c0.195,0.195,0.451,0.293,0.707,0.293 s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L15.151,13.615z"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                            </div>
+                            <p>Соблюдение сроков</p>
+                            <p>Зарание договариваемся<br/>о сроках выполнения заказа<br/>и соблюдаем их</p>
+                        </div>
+                        <div class="advantage col-xl-4 flex-column d-flex align-items-center col-md-6 col-sm-6">
+                            <div class="circle d-flex justify-content-center align-items-center ">
+                                <svg width="47px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.069 512.069" style="enable-background:new 0 0 512.069 512.069;" xml:space="preserve"><g transform="translate(0 -1)"> <g> <g> <path d="M508.968,241.21l-51.2-42.667c-1.492-1.204-3.347-1.87-5.264-1.888l-71.024-30.848c1.476-2.286,2.92-4.578,4.197-6.888 c32.467-54.817,31.725-110.675-1.842-139.008C364.102,4.349,338.66-2.038,313.917,2.36 c-22.696,3.867-43.074,16.214-57.008,34.542C242.975,18.575,222.597,6.227,199.901,2.36c-24.742-4.401-50.186,1.986-69.917,17.55 c-33.567,28.333-34.308,84.192-1.967,138.783c1.196,2.164,2.558,4.306,3.927,6.447l-75.585,32.903 c-0.661,0.303-1.281,0.69-1.843,1.151c-0.067,0.052-0.149,0.061-0.215,0.116l-51.2,42.667c-2.274,1.896-3.403,4.835-2.984,7.766 c0.419,2.931,2.327,5.435,5.042,6.617l46.075,20.032v142.81c0.04,0.271,0.094,0.54,0.162,0.805 c0.045,0.823,0.209,1.635,0.486,2.411c0.251,0.498,0.552,0.97,0.898,1.408c0.254,0.469,0.552,0.912,0.891,1.323 c0.621,0.589,1.327,1.082,2.095,1.46c0.22,0.12,0.367,0.317,0.6,0.418l0.058,0.026l0.038,0.016l196.171,85.291l0.03,0.006 c0.134,0.057,0.289,0.057,0.426,0.108c0.924,0.364,1.906,0.562,2.899,0.586l0.037,0.008l0.005,0l0.004,0l0.004,0l0.005,0 l0.037-0.008c0.993-0.024,1.974-0.222,2.898-0.586c0.138-0.051,0.293-0.05,0.427-0.108l0.029-0.006l196.267-85.333 c3.256-1.414,5.297-4.696,5.125-8.242l-0.031-0.153c0.002-0.069,0.04-0.127,0.04-0.197V275.623l46.067-20.029 c2.717-1.179,4.629-3.683,5.05-6.615C512.372,246.047,511.243,243.107,508.968,241.21z M140.992,32.96 c12.372-9.84,27.778-15.077,43.584-14.816c27.016-0.032,51.913,14.627,64.992,38.267c1.652,2.432,4.402,3.887,7.342,3.887 c2.94,0,5.689-1.456,7.342-3.887c11.064-19.632,30.328-33.287,52.517-37.225c19.796-3.618,40.194,1.394,56.058,13.775 c26.967,22.758,26.225,69.875-1.958,117.483c-22.567,40.817-84.275,79.767-113.958,96.808 c-29.683-17.042-91.392-56-114.083-97.033C114.767,102.835,114.026,55.719,140.992,32.96z M24.659,246.235l36.536-30.442 l178.739,77.713l-36.525,30.438L24.659,246.235z M247.501,491.522l-179.2-77.913V283.812l133.133,57.882 c2.958,1.286,6.388,0.796,8.867-1.267l37.2-31V491.522z M256.027,281.896L81.159,205.86l61.108-26.596 c29.893,36.532,80.134,68.175,110.458,85.238c2.596,1.467,5.771,1.467,8.367,0c30.188-16.986,80.115-48.422,109.981-84.612 l59.819,25.979L256.027,281.896z M443.767,413.605l-179.2,77.917V308.659l37.208,31.001c2.476,2.063,5.904,2.553,8.858,1.267 l133.133-57.884V413.605z M308.659,323.177l-35.92-29.928l178.743-77.72l35.919,29.932L308.659,323.177z"></path> <path d="M179.234,69.335c2.264,0.001,4.435-0.897,6.035-2.498s2.499-3.772,2.498-6.035v-8.533c0-4.713-3.82-8.533-8.533-8.533 s-8.533,3.82-8.533,8.533v8.533c-0.001,2.264,0.897,4.435,2.498,6.035S176.97,69.337,179.234,69.335z"></path> <path d="M179.234,86.402c-2.264-0.001-4.435,0.897-6.035,2.498c-1.601,1.601-2.499,3.772-2.498,6.035v8.533 c0,4.713,3.82,8.533,8.533,8.533s8.533-3.82,8.533-8.533v-8.533c0.001-2.264-0.897-4.435-2.498-6.035 C183.669,87.299,181.498,86.401,179.234,86.402z"></path> <path d="M153.634,86.402h8.533c4.713,0,8.533-3.82,8.533-8.533s-3.82-8.533-8.533-8.533h-8.533c-4.713,0-8.533,3.82-8.533,8.533 S148.921,86.402,153.634,86.402z"></path> <path d="M196.301,86.402h8.533c4.713,0,8.533-3.82,8.533-8.533s-3.821-8.533-8.533-8.533h-8.533c-4.713,0-8.533,3.82-8.533,8.533 S191.588,86.402,196.301,86.402z"></path> </g> </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                            </div>
+                            <p>Пижамы от<br/>производителя</p>
+                            <p>Это не Китай, наше<br/>производство в<br/>Украине</p>
+                        </div>
+                        <div class="advantage col-xl-4 flex-column d-flex align-items-center col-md-6 col-sm-6">
+                            <div class="circle d-flex justify-content-center align-items-center">
+                                <svg width="55px" viewBox="-51 0 512 512.00253" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m28.460938 252.042969c-5.628907 8.121093-8.59375 17.796875-8.480469 27.679687.03125 9.65625 2.601562 19.132813 7.457031 27.480469 9.546875 17.472656 28.300781 27.890625 48.179688 26.757813-.109376 1.308593-.171876 2.628906-.171876 3.960937.007813 4.695313.730469 9.363281 2.144532 13.839844l-59.359375 76.382812c-4.464844 5.792969-4.738281 13.789063-.683594 19.875 4.054687 6.089844 11.535156 8.917969 18.605469 7.03125l52.171875-13.976562c4.574219-1.222657 9.273437 1.492187 10.503906 6.066406l14.011719 52.25c1.855468 7.070313 8.058594 12.140625 15.359375 12.550781h1.210937c6.933594.027344 13.183594-4.160156 15.796875-10.582031l38.953125-95.785156c12.515625 5.035156 26.441406 5.316406 39.152344.792969l38.671875 95.042968c2.574219 6.453125 8.851563 10.660156 15.796875 10.589844h1.125c7.378906-.363281 13.660156-5.484375 15.503906-12.636719l14.011719-52.265625c1.21875-4.546875 5.886719-7.25 10.4375-6.042968l52.199219 13.988281c7.085937 1.914062 14.601562-.917969 18.664062-7.027344 4.0625-6.113281 3.761719-14.136719-.746094-19.929687l-57.699218-74.121094c1.910156-5.132813 2.890625-10.566406 2.898437-16.042969 0-1.332031-.058593-2.652344-.167969-3.960937 19.871094 1.113281 38.617188-9.296876 48.167969-26.757813 4.863281-8.347656 7.4375-17.828125 7.46875-27.488281.109375-9.882813-2.855469-19.554688-8.484375-27.679688 17.5-9.265625 28.445313-27.441406 28.445313-47.242187s-10.945313-37.976563-28.445313-47.242188c10.882813-16.667969 11.273438-38.09375 1.007813-55.148437-9.59375-17.4375-28.324219-27.835938-48.195313-26.761719 1.117188-19.882813-9.292968-38.636719-26.761718-48.203125-17.121094-10.054688-38.433594-9.664062-55.175782 1.015625-9.257812-17.503906-27.4375-28.453125-47.242187-28.453125-19.800781 0-37.980469 10.949219-47.238281 28.453125-16.730469-10.667969-38.027344-11.066406-55.144532-1.023437-17.460937 9.5625-27.871094 28.308593-26.757812 48.1875-19.890625-1.097657-38.648438 9.320312-48.230469 26.785156-10.261719 17.054687-9.863281 38.476562 1.023437 55.140625-17.5 9.261719-28.445312 27.4375-28.445312 47.238281 0 19.796875 10.945312 37.972656 28.445312 47.234375zm100.882812 242.890625-13.976562-52.171875c-3.652344-13.679688-17.691407-21.824219-31.378907-18.199219l-52.230469 14 54.707032-70.398438c4.378906 5.644532 9.789062 10.402344 15.945312 14.027344 17.039063 10.257813 38.4375 9.871094 55.09375-.996094 2.78125 5.988282 6.820313 11.308594 11.835938 15.605469zm246.136719-56.320313-52.277344-14.011719c-6.558594-1.753906-13.546875-.832031-19.429687 2.566407-5.878907 3.398437-10.167969 8.992187-11.921876 15.550781l-14.027343 52.214844-39.375-96.648438c5.847656-4.519531 10.527343-10.371094 13.65625-17.066406 16.683593 10.878906 38.121093 11.253906 55.175781.964844 5.578125-3.242188 10.566406-7.40625 14.753906-12.3125l53.554688 68.742187zm-329.679688-267.945312c3.824219-.0625 7.136719-2.664063 8.109375-6.359375.976563-3.699219-.628906-7.59375-3.925781-9.527344-13.550781-7.980469-17.066406-27.660156-7.785156-43.820312 5.886719-10.925782 17.09375-17.941407 29.492187-18.457032 4.324219-.0625 8.585938 1.039063 12.339844 3.191406 3.332031 1.941407 7.554688 1.40625 10.296875-1.304687 2.742187-2.714844 3.324219-6.929687 1.417969-10.285156-7.839844-13.753907-1.015625-32.554688 15.199218-41.90625 5.75-3.359375 12.285157-5.140625 18.945313-5.164063 10.023437-.382812 19.503906 4.554688 24.933594 12.988282 1.953125 3.269531 5.839843 4.847656 9.519531 3.867187s6.265625-4.28125 6.335938-8.089844c1.804687-17.230469 16.933593-29.933593 34.21875-28.730469 17.226562-1.136718 32.265624 11.554688 34.046874 28.730469.050782 3.816407 2.628907 7.132813 6.316407 8.125 3.683593.992188 7.578125-.585937 9.539062-3.859375 5.417969-8.449218 14.902344-13.40625 24.933594-13.03125 6.660156.027344 13.195313 1.8125 18.945313 5.171875 16.210937 9.386719 23.039062 28.160157 15.195312 41.898438-1.90625 3.355469-1.324219 7.570312 1.421875 10.285156 2.742187 2.710937 6.960937 3.246094 10.296875 1.304687 3.75-2.152343 8.011719-3.253906 12.339844-3.191406 12.382812.515625 23.578125 7.519532 29.457031 18.429688 9.28125 16.214844 5.800781 35.894531-7.75 43.871094-3.269531 1.949218-4.855469 5.828124-3.886719 9.507812.972656 3.679688 4.261719 6.273438 8.066406 6.355469 17.230469 1.8125 29.925782 16.9375 28.726563 34.21875 1.132813 17.226562-11.554687 32.265625-28.726563 34.046875-3.820312.046875-7.144531 2.628906-8.136718 6.316406-.992188 3.691406.589844 7.59375 3.871094 9.546875 8.449218 5.417969 13.402343 14.898437 13.023437 24.925781-.027344 6.660156-1.8125 13.195313-5.171875 18.945313-9.34375 16.214843-28.160156 23.039062-41.890625 15.191406-3.355469-1.914063-7.574219-1.335937-10.292969 1.40625-2.71875 2.746094-3.25 6.972656-1.304687 10.308594 2.148437 3.757812 3.253906 8.019531 3.191406 12.347656-.039063 4.710937-1.167969 9.347656-3.300781 13.550781-3.363282 6.679688-8.628906 12.214844-15.128906 15.90625-16.214844 9.277344-35.910157 5.785156-43.871094-7.757812-1.945313-3.265625-5.816406-4.851563-9.496094-3.890625-3.675781.964843-6.273438 4.246093-6.367188 8.046875-.476562 10.105468-6.273437 19.199218-15.230468 23.894531-12.378906 6.675781-27.363282 6.304687-39.390625-.980469-8.109375-4.839844-13.238281-13.429687-13.644531-22.863281-.054688-3.828125-2.648438-7.152344-6.347657-8.132813-3.703125-.976562-7.601562.625-9.542969 3.925782-7.976562 13.558594-27.648437 17.066406-43.835937 7.785156-7.03125-4.003906-12.601563-10.148438-15.898437-17.539062-1.660157-3.765626-2.53125-7.832032-2.558594-11.945313-.058594-4.328125 1.042968-8.589844 3.191406-12.347656 1.949219-3.335938 1.414062-7.5625-1.304688-10.308594-2.714843-2.742187-6.9375-3.320313-10.292968-1.40625-13.753906 7.832031-32.554688.996094-41.898438-15.199219-3.355468-5.75-5.132812-12.28125-5.160156-18.9375-.390625-10.019531 4.550781-19.5 12.984375-24.925781 3.285156-1.953125 4.867187-5.855469 3.875-9.546875-.992187-3.6875-4.320313-6.269531-8.140625-6.316406-17.207031-1.835938-29.875-16.957032-28.671875-34.21875-1.132813-17.222656 11.554687-32.261719 28.722656-34.046875zm0 0"></path><path d="m204.8125 341.335938c75.40625 0 136.53125-61.128907 136.53125-136.535157s-61.125-136.53125-136.53125-136.53125-136.535156 61.125-136.535156 136.53125c.089844 75.371094 61.167968 136.445313 136.535156 136.535157zm0-256c65.980469 0 119.464844 53.484374 119.464844 119.464843s-53.484375 119.46875-119.464844 119.46875-119.46875-53.488281-119.46875-119.46875c.070312-65.949219 53.519531-119.394531 119.46875-119.464843zm0 0"></path><path d="m196.277344 298.667969c0 4.714843 3.820312 8.535156 8.535156 8.535156 56.527344-.0625 102.339844-45.871094 102.398438-102.402344 0-4.710937-3.820313-8.53125-8.53125-8.53125-4.714844 0-8.535157 3.820313-8.535157 8.53125-.050781 47.109375-38.226562 85.28125-85.332031 85.335938-4.714844 0-8.535156 3.820312-8.535156 8.53125zm0 0"></path><path d="m204.8125 119.46875c4.710938 0 8.53125-3.820312 8.53125-8.535156 0-4.710938-3.820312-8.53125-8.53125-8.53125-56.527344.058594-102.339844 45.871094-102.402344 102.398437 0 4.714844 3.824219 8.535157 8.535156 8.535157 4.710938 0 8.535157-3.820313 8.535157-8.535157.050781-47.105469 38.226562-85.28125 85.332031-85.332031zm0 0"></path><path d="m213.34375 145.070312c-.042969-.324218-.105469-.644531-.195312-.957031-.085938-1.167969-.460938-2.292969-1.089844-3.277343-.121094-.292969-.261719-.578126-.421875-.851563-.117188-.164063-.304688-.242187-.433594-.394531-.398437-.433594-.835937-.824219-1.3125-1.167969-1.328125-.957031-2.886719-1.546875-4.515625-1.707031-.195312 0-.367188-.113282-.5625-.113282-.3125.046876-.625.109376-.929688.191407-.582031.054687-1.152343.171875-1.707031.347656-.546875.195313-1.070312.449219-1.5625.75-.292969.121094-.578125.261719-.851562.417969l-34.136719 25.601562c-2.4375 1.828125-3.714844 4.820313-3.351562 7.847656.367187 3.027344 2.316406 5.628907 5.121093 6.828126 2.804688 1.195312 6.035157.804687 8.472657-1.023438l20.410156-15.425781v93.863281h-17.066406c-4.710938 0-8.53125 3.820312-8.53125 8.535156 0 4.710938 3.820312 8.535156 8.53125 8.535156h51.199218c4.714844 0 8.535156-3.824218 8.535156-8.535156 0-4.714844-3.820312-8.535156-8.535156-8.535156h-17.066406zm0 0"></path></svg>
+                            </div>
+                            <p>Качество</p>
+                            <p>Используем высококласный<br/>материал бархат</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+            
+        </div>
+    </div>
+
+    <div class="partners-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="text-center">Партнеры:</h2>
+                    <div class="row d-flex justify-content-around align-items-center">
+                        <div class="col-xl-4 offset-xl-1 col-md-4 col-12 text-center">
+                            <img src="img/nova_poshta.png" ondragstart="return false;" alt="Nova Pochta"> 
+                        </div>
+                        <div class="col-xl-4 offset-xl-1 col-md-4 col-12 text-center">
+                            <img src="img/privat_bank.png" ondragstart="return false;" alt="Privat Bank">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="photo" class="photo-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="text-center">Наши пижамы на девушках</h2>
+                </div>
+            </div>
+
+            <!-- <div id="ourPhotos" class="carousel slide" data-ride="carousel" data-interval="false">
+                <ol class="carousel-indicators">
+                  <li data-target="#ourPijams" data-slide-to="0" class="active"></li>
+                  <li data-target="#ourPijams" data-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(18).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(20).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(22).jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(19).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(21).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(23).jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row justify-content-around">
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(24).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(26).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(28).jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(25).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(27).jpg" alt="">
+                            </div>
+                            <div class="photo-wrap col-xl-4 text-center">
+                                <img src="img/file(29).jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <a class="carousel-control-prev" href="#ourPhotos" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#ourPhotos" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div> -->
+
+            <div class="row multiple-items justify-content-center photo-slide">
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(18).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(20).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(22).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(19).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(21).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(23).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(24).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(26).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(28).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(25).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(27).jpg" alt="">
+                </div>
+                <div class="photo-wrap col-xl-4 col-md-4 d-flex justify-content-center">
+                    <img src="img/file(29).jpg" alt="">
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-xl-3 text-center">
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Подобрать размер</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-bar">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h2>Часто задаваемые вопросы клиентов</h2>
+                    <div class="row">
+                        <div class="separator"></div>
+                        <div class="col-xl-3 d-flex justify-content-center col-md-3">
+                            <svg width="63px" height="63px" fill="#fa6775" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 60 60"><g fill-rule="nonzero"><path d="M3.19 26.213a3.189 3.189 0 0 0-2.9 4.508l3.92 8.621a10.645 10.645 0 0 0 2.171 3.134l6.164 6.163A1.989 1.989 0 0 0 12 50v8a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2v-1.861a10.483 10.483 0 0 0-2.191-6.55 7.2 7.2 0 0 0-3.334-2.431 19.78 19.78 0 0 1-5.724-3.674 4.614 4.614 0 0 0-5.472-.3l-2.158-5.038a3.185 3.185 0 0 0-2.931-1.933zM25 58H14v-8h11v8zM6.52 34.151a11.826 11.826 0 0 0 2.521 3.725l4.569 4.569a1 1 0 1 0 1.414-1.414l-4.569-4.569a9.857 9.857 0 0 1-1.232-1.5 2.6 2.6 0 0 1 3.24.054 21.307 21.307 0 0 0 6.379 4.04c.956.348 1.79.968 2.4 1.783a8.48 8.48 0 0 1 1.758 5.3V48h-8.269l-6.938-6.938a8.661 8.661 0 0 1-1.765-2.547l-3.92-8.621a1.189 1.189 0 1 1 2.175-.96l2.237 5.217z"></path><path d="M22 53h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zM55.792 39.343l3.92-8.622a3.188 3.188 0 1 0-5.833-2.575l-2.158 5.035a4.609 4.609 0 0 0-5.471.3 19.8 19.8 0 0 1-5.725 3.674 7.2 7.2 0 0 0-3.334 2.431A10.483 10.483 0 0 0 35 46.139V48a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8a1.989 1.989 0 0 0-.543-1.361l6.164-6.163a10.654 10.654 0 0 0 2.171-3.133zM46 58H35v-8h11v8zm-.731-10H37v-1.861a8.48 8.48 0 0 1 1.754-5.3 5.235 5.235 0 0 1 2.4-1.783 21.321 21.321 0 0 0 6.38-4.04 2.6 2.6 0 0 1 3.238-.053 9.832 9.832 0 0 1-1.231 1.5l-4.569 4.569a1 1 0 0 0 1.414 1.414l4.569-4.569a11.826 11.826 0 0 0 2.521-3.725l2.237-5.218a1.187 1.187 0 0 1 2.092-.175c.218.34.25.767.083 1.135l-3.92 8.622a8.661 8.661 0 0 1-1.765 2.547L45.269 48z"></path><path d="M39 53h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zM39.5 35.455c.032-.026.063-.053.093-.082a19.123 19.123 0 0 0 6.741-6.717.984.984 0 0 0 .121-.156.816.816 0 0 0 .032-.095 18.856 18.856 0 0 0 0-18.81.816.816 0 0 0-.032-.1.929.929 0 0 0-.083-.094 19.127 19.127 0 0 0-6.779-6.779 1.211 1.211 0 0 0-.093-.082c-.03-.017-.063-.017-.094-.031a18.853 18.853 0 0 0-18.812 0 .8.8 0 0 0-.094.031 1.211 1.211 0 0 0-.093.082 19.118 19.118 0 0 0-6.779 6.779.929.929 0 0 0-.083.094.816.816 0 0 0-.032.1 18.856 18.856 0 0 0 0 18.81c.009.032.02.064.032.095a.984.984 0 0 0 .121.156 19.123 19.123 0 0 0 6.741 6.717c.03.029.06.056.093.082a.909.909 0 0 0 .13.053 18.862 18.862 0 0 0 18.74 0 .909.909 0 0 0 .13-.053zm-.155-2.269l-1-1.73a15.109 15.109 0 0 0 4.11-4.11l1.73 1a17.13 17.13 0 0 1-4.84 4.84zM13.051 20h2c.127 1.95.636 3.855 1.5 5.608l-1.734 1A16.841 16.841 0 0 1 13.051 20zm1.769-8.609l1.734 1A14.871 14.871 0 0 0 15.051 18h-2c.131-2.3.733-4.55 1.769-6.609zM17 19c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13c-7.176-.008-12.992-5.824-13-13zM31 4.051v-2c2.3.131 4.55.733 6.609 1.769l-1 1.734A14.871 14.871 0 0 0 31 4.051zm-2 0c-1.95.127-3.855.636-5.608 1.5l-1-1.734A16.841 16.841 0 0 1 29 2.051v2zM46.949 18h-2a14.871 14.871 0 0 0-1.5-5.608l1.734-1A16.841 16.841 0 0 1 46.949 18zm-1.769 8.609l-1.734-1A14.871 14.871 0 0 0 44.949 20h2c-.131 2.3-.733 4.55-1.769 6.609zM29 33.949v2c-2.3-.131-4.55-.733-6.609-1.769l1-1.734A14.871 14.871 0 0 0 29 33.949zm2 0a14.871 14.871 0 0 0 5.608-1.5l1 1.734A16.841 16.841 0 0 1 31 35.949v-2zM44.186 9.655l-1.73 1a15.109 15.109 0 0 0-4.11-4.11l1-1.73a17.13 17.13 0 0 1 4.84 4.84zM20.655 4.814l1 1.73a15.109 15.109 0 0 0-4.11 4.11l-1.73-1a17.13 17.13 0 0 1 4.84-4.84zm-4.841 23.531l1.73-1a15.109 15.109 0 0 0 4.11 4.11l-1 1.73a17.13 17.13 0 0 1-4.84-4.84z"></path><path d="M25 25a1 1 0 0 0 0 2h4v2a1 1 0 0 0 2 0v-2h.5a4.5 4.5 0 1 0 0-9H31v-5h4a1 1 0 0 0 0-2h-4V9a1 1 0 0 0-2 0v2h-.5a4.5 4.5 0 1 0 0 9h.5v5h-4zm3.5-7a2.5 2.5 0 1 1 0-5h.5v5h-.5zm2.5 2h.5a2.5 2.5 0 1 1 0 5H31v-5z"></path></g></svg>
+                        </div>
+                        <div class="col-xl-9 col-md-9">
+                            <p class="question">Какие варианты оплаты ?</p>
+                            <p class="answer">На карту Приват Банка<br/>
+                                Наличными при получении</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="separator"></div>
+                        <div class="col-xl-3 d-flex justify-content-center col-md-3">
+                            <svg width="63px" height="63px" fill="#fa6775" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.653 511.653" style="enable-background:new 0 0 511.653 511.653;" xml:space="preserve"><g transform="translate(1 1)"> <g> <path d="M505.88,265.92c-15.36-20.48-30.72-20.48-68.267-0.853l-37.547,23.139V88.426c0-13.653-11.093-25.6-25.6-25.6h-76.8 v-8.533c0-5.12-3.413-8.533-8.533-8.533H203.8c-5.12,0-8.533,3.413-8.533,8.533v8.533h-76.8c-13.653,0-25.6,11.093-25.6,25.6 v153.602c-13.343,5.371-25.435,12.318-34.133,17.875v-17.876H-1v221.867h59.733v-25.6h110.933c17.067,0,34.987-1.707,52.053-2.56 l110.933-17.067c4.267,0,8.533-0.853,11.947-1.707c10.24-1.707,19.627-6.827,28.16-14.507l128.853-102.4 C511.853,291.52,513.56,276.16,505.88,265.92z M212.333,62.826H280.6v8.533v58.88l-29.013-23.04c-2.56-2.56-6.827-2.56-10.24,0 l-29.013,23.04V71.36V62.826z M109.933,88.426c0-4.267,3.413-8.533,8.533-8.533h76.8v52.053c0,5.973,3.413,11.947,9.387,14.507 c1.639,0.82,4.066,1.631,6.523,1.695c3.712,0.288,7.3-0.698,10.544-3.401l24.747-19.627l23.04,19.627 c3.336,2.224,7.034,3.352,10.858,3.167c2.588,0.14,5.251-0.318,7.915-1.46c5.973-2.56,9.387-8.533,9.387-14.507V79.893h75.093 c4.267,0,8.533,3.413,8.533,8.533V299.2l-17.92,11.093c-10.104,5.894-32.667,7.633-53.759,7.678 c4.265-7.68,2.558-17.066-5.121-28.158c-13.653-19.627-36.693-31.573-61.44-31.573H242.2h-32.427 c-17.92,0-34.987-5.12-48.64-15.36c-7.833-5.874-16.79-8.621-26.177-9.215c-1.485-0.112-2.999-0.172-4.543-0.172 c-5.973,0-12.8,0.853-20.48,2.56V88.426z M41.667,446.826h-25.6V259.093h25.6v12.8v166.4V446.826z M491.373,288.106L361.667,388.8 l-0.853,0.853c-5.12,5.973-11.947,9.387-19.627,10.24c-3.413,0.853-5.973,0.853-9.387,0.853l-112.64,17.067 c-16.213,2.56-33.28,3.413-49.493,3.413H58.733v-140.8c9.892-7.007,26.153-16.998,43.016-23.342 c1.021-0.015,2.043-0.21,3.064-0.551c20.48-6.827,35.84-6.827,46.08,0.853c16.213,11.947,36.693,18.773,58.88,18.773h33.28 c19.627,0,37.547,8.533,47.787,24.747c4.178,5.013,5.078,10.018,4.313,11.827c-0.016,0.039-0.029,0.084-0.047,0.12 c-0.79,1.316-2.315,2.388-4.366,3.267c-0.045,0.019-0.086,0.038-0.131,0.057c-0.254,0.107-0.527,0.206-0.797,0.307 c-0.239,0.088-0.472,0.178-0.726,0.263c-0.081,0.028-0.167,0.053-0.25,0.08c-1.367,0.446-2.935,0.854-4.713,1.216 c-0.01,0.002-0.02,0.004-0.029,0.006c-0.571,0.116-1.166,0.226-1.778,0.332c-0.11,0.019-0.221,0.038-0.332,0.056 c-0.538,0.091-1.092,0.178-1.661,0.262c-0.131,0.019-0.262,0.039-0.394,0.058c-2.825,0.401-6.015,0.714-9.57,0.923 c-1.766,0-3.511,0-5.12,0c-1.236,0-2.394,0-3.413,0h-79.36c-26.453,0-42.667,12.8-42.667,34.133c0,5.12,3.413,8.533,8.533,8.533 c5.12,0,8.533-3.413,8.533-8.533c0-4.267,0-17.067,25.6-17.067h78.507v0c2.56,0,5.973,0,11.093,0c0.853,0,2.56,0,4.267,0 c40.107,0.853,77.653,0,97.28-10.24L447,281.28c35.84-17.92,39.253-13.653,46.08-3.413 C494.787,280.426,494.787,285.546,491.373,288.106z"></path> </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                        </div>
+                        <div class="col-xl-9 col-md-9">
+                            <p class="question">Как и когда доставляете ?</p>
+                            <p class="answer">Отправляем товар по предоплате. Стоимость доставки можно также оплатить при получении.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="separator"></div>
+                        <div class="col-xl-3 d-flex justify-content-center col-md-3">
+                            <svg width="63px" height="63px" fill="#fa6775" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.003 512.003" style="enable-background:new 0 0 512.003 512.003;" xml:space="preserve"><g> <g> <g> <path d="M256.002,109.78c-55.544,0-100.571,45.027-100.571,100.571s45.027,100.571,100.571,100.571 s100.571-45.027,100.571-100.571C356.51,154.833,311.52,109.842,256.002,109.78z M322.167,206.271L322.167,206.271 l-19.763,19.179l4.67,27.116c1.183,6.856-1.628,13.79-7.252,17.886c-5.624,4.097-13.085,4.646-19.248,1.417l-24.567-12.853 l-24.581,12.857c-6.164,3.226-13.624,2.674-19.246-1.423c-5.622-4.097-8.432-11.03-7.25-17.885l4.67-27.12l-19.763-19.174 c-5.002-4.854-6.809-12.129-4.661-18.759c2.148-6.63,7.879-11.462,14.777-12.46l27.388-3.964l12.277-24.763 c3.086-6.227,9.435-10.166,16.384-10.166c6.949,0,13.298,3.939,16.384,10.166l12.277,24.763l27.388,3.964 c6.898,0.998,12.628,5.83,14.777,12.46C328.976,194.142,327.168,201.417,322.167,206.271z"></path> <path d="M393.051,234.119c0.371-2.057-0.381-4.155-1.973-5.509c-5.277-4.597-8.306-11.252-8.308-18.25 c-0.002-6.998,3.025-13.655,8.299-18.254c1.597-1.353,2.352-3.453,1.982-5.513c-0.353-2.051-1.744-3.772-3.674-4.549 l-0.196-0.076c-6.544-2.548-11.677-7.788-14.089-14.384c-2.373-6.528-1.827-13.76,1.5-19.857c1.02-1.809,1.005-4.023-0.04-5.817 c-1.094-1.907-3.115-3.092-5.313-3.116c-7.054-0.183-13.692-3.378-18.237-8.777c-4.454-5.309-6.423-12.27-5.411-19.125 c0.326-2.061-0.46-4.142-2.067-5.473c-1.698-1.444-4.029-1.895-6.143-1.188c-6.704,2.204-14.031,1.442-20.138-2.094 c-5.998-3.469-10.235-9.329-11.652-16.112c-0.435-2.079-1.925-3.779-3.929-4.482c-2.08-0.786-4.42-0.427-6.17,0.946 c-5.501,4.295-12.561,6.061-19.436,4.862c-6.875-1.199-12.921-5.25-16.644-11.153c-1.163-1.851-3.191-2.979-5.377-2.991 c-2.186-0.012-4.226,1.094-5.409,2.933c-3.711,5.921-9.757,9.991-16.639,11.202s-13.954-0.551-19.464-4.849 c-1.751-1.376-4.095-1.737-6.179-0.951c-2.001,0.703-3.489,2.402-3.924,4.478c-1.418,6.784-5.657,12.643-11.656,16.112 c-6.089,3.525-13.391,4.293-20.08,2.112c-2.125-0.745-4.487-0.301-6.197,1.165c-1.597,1.32-2.385,3.38-2.075,5.429 c1.027,6.871-0.941,13.852-5.406,19.174c-4.539,5.395-11.171,8.588-18.219,8.772c-2.206,0.02-4.235,1.21-5.33,3.125 c-1.041,1.774-1.067,3.966-0.067,5.763c3.355,6.138,3.898,13.425,1.491,19.992c-2.407,6.568-7.531,11.777-14.058,14.293 c-2.024,0.739-3.5,2.502-3.871,4.625c-0.371,2.057,0.381,4.155,1.973,5.509c5.277,4.597,8.306,11.252,8.308,18.25 c0.002,6.998-3.025,13.655-8.299,18.254c-1.597,1.353-2.352,3.453-1.982,5.513c0.353,2.051,1.744,3.772,3.674,4.549l0.196,0.076 c6.544,2.548,11.677,7.788,14.089,14.384c2.373,6.528,1.827,13.76-1.5,19.857c-1.02,1.809-1.005,4.023,0.04,5.817 c1.094,1.907,3.115,3.092,5.313,3.116c7.054,0.183,13.692,3.378,18.237,8.777c4.454,5.309,6.423,12.27,5.411,19.125 c-0.326,2.061,0.46,4.142,2.067,5.473c1.697,1.447,4.029,1.898,6.143,1.187c6.705-2.199,14.029-1.438,20.138,2.094 c5.998,3.469,10.235,9.329,11.652,16.112c0.435,2.079,1.925,3.779,3.929,4.482c2.08,0.788,4.421,0.429,6.17-0.946 c5.5-4.295,12.561-6.061,19.436-4.863c6.875,1.199,12.921,5.25,16.644,11.153l0.04,0.063c1.177,1.826,3.201,2.929,5.374,2.929 c2.173-0.001,4.196-1.106,5.372-2.933c3.711-5.921,9.757-9.991,16.639-11.202c6.882-1.211,13.954,0.551,19.464,4.849 c1.749,1.381,4.095,1.742,6.179,0.951c2.001-0.704,3.489-2.402,3.924-4.478c1.418-6.783,5.657-12.642,11.656-16.112 c6.09-3.523,13.391-4.291,20.08-2.112c2.126,0.743,4.486,0.3,6.196-1.165c1.597-1.32,2.385-3.38,2.076-5.429 c-1.027-6.871,0.941-13.852,5.406-19.174c4.539-5.395,11.171-8.588,18.219-8.772c2.206-0.02,4.235-1.21,5.33-3.125 c1.041-1.774,1.067-3.966,0.067-5.763c-3.355-6.138-3.898-13.425-1.491-19.992s7.531-11.777,14.058-14.293l0,0 C391.205,238.005,392.681,236.242,393.051,234.119z M348.115,285.337c-0.201,0.285-0.418,0.558-0.651,0.817 c-26.298,32.25-67.747,48.104-108.854,41.635l-0.14,0.027c-0.333-0.048-0.664-0.115-0.99-0.199 c-28.53-4.486-54.449-19.212-72.908-41.425c-0.349-0.374-0.665-0.776-0.945-1.204c-39.295-48.559-34.291-119.251,11.453-161.791 c45.744-42.54,116.613-42.405,162.195,0.307C382.858,166.217,387.594,236.927,348.115,285.337z"></path> <path d="M268.278,179.213l-12.308-24.821l-12.245,24.821c-2.672,5.387-7.821,9.116-13.772,9.973l-27.384,3.964l19.763,19.174 c4.339,4.201,6.318,10.277,5.286,16.228l-4.67,27.12l24.576-12.862c5.314-2.78,11.652-2.778,16.964,0.005l24.563,12.853 l-4.665-27.116c-1.032-5.953,0.949-12.031,5.29-16.232l19.759-19.174l-27.388-3.96 C276.097,188.327,270.949,184.598,268.278,179.213z"></path> <path d="M88.106,449.159c11.792,10.351,24.531,19.57,38.049,27.535l-8.068-37.147L88.106,449.159z"></path> <path d="M230.845,351.369c-1.791-0.323-3.636,0.131-5.071,1.25c-6.728,5.282-15.719,6.686-23.737,3.705 c-7.943-2.867-13.824-9.657-15.527-17.929c-0.355-1.695-1.419-3.156-2.924-4.014c-1.587-0.922-3.493-1.122-5.237-0.549 c-8.152,2.712-17.128,0.974-23.679-4.585c-6.449-5.401-9.616-13.772-8.357-22.089c0.269-1.692-0.216-3.418-1.326-4.723 c-1.165-1.398-2.881-2.219-4.701-2.25c-1.544-0.092-3.075-0.328-4.575-0.705L53.935,440.949l68.17-21.888 c2.457-0.788,5.132-0.501,7.365,0.79c2.234,1.291,3.818,3.465,4.362,5.987l15.214,69.933l83.073-143.97 C231.705,351.627,231.28,351.483,230.845,351.369z"></path> <path d="M255.993,365.78c-3.311-0.052-6.577-0.774-9.602-2.122l-58.213,100.844c44.09,14.272,91.558,14.272,135.648,0 l-58.217-100.85c-3.027,1.352-6.297,2.076-9.612,2.128H255.993z"></path> <path d="M385.849,476.694c13.518-7.965,26.257-17.184,38.049-27.535l-29.981-9.612L385.849,476.694z"></path> <path d="M484.949,141.295C441.565,54.635,352.915-0.05,256.002,0.065C159.088-0.05,70.439,54.635,27.054,141.295 c-43.385,86.66-34.048,190.4,24.114,267.921l10.024-17.343c-27.977-39.755-42.965-87.195-42.905-135.808 c0-131.286,106.428-237.714,237.714-237.714s237.714,106.428,237.714,237.714c0.06,48.613-14.927,96.053-42.905,135.808 l10.024,17.343C518.997,331.695,528.334,227.955,484.949,141.295z"></path> <path d="M391.448,289.167l49.208,85.136c22.76-35.23,34.838-76.295,34.775-118.238c0-121.187-98.242-219.429-219.429-219.429 S36.573,134.878,36.573,256.065c-0.063,41.943,12.014,83.008,34.775,118.238l49.21-85.14c-0.293-0.442-0.686-0.79-0.953-1.254 c-4.233-7.291-4.334-16.267-0.268-23.652c0.839-1.492,0.982-3.277,0.393-4.884c-0.585-1.61-1.824-2.897-3.41-3.545l-0.192-0.076 c-7.932-3.052-13.688-10.033-15.172-18.401c-1.484-8.368,1.519-16.903,7.918-22.497c1.314-1.124,2.073-2.766,2.076-4.496 c0.003-1.73-0.748-3.375-2.058-4.504c-6.405-5.591-9.415-14.127-7.934-22.499c1.481-8.372,7.237-15.357,15.171-18.412 c1.673-0.625,2.99-1.949,3.607-3.625c0.585-1.59,0.45-3.357-0.37-4.839c-4.087-7.395-3.994-16.392,0.245-23.701 c4.26-7.434,12.104-12.091,20.67-12.272c1.826-0.031,3.547-0.854,4.719-2.254c1.101-1.291,1.588-2.996,1.335-4.674 c-1.275-8.331,1.891-16.723,8.353-22.134c6.528-5.553,15.48-7.297,23.616-4.603c1.758,0.601,3.69,0.409,5.295-0.527 c1.504-0.856,2.568-2.316,2.924-4.009c1.704-8.273,7.586-15.065,15.531-17.933c8.013-2.971,16.994-1.568,23.719,3.705 c1.438,1.121,3.286,1.576,5.08,1.25c1.754-0.296,3.298-1.325,4.246-2.83c4.486-7.229,12.402-11.612,20.91-11.576h0.005 c8.484-0.04,16.382,4.319,20.87,11.518c0.944,1.534,2.502,2.588,4.277,2.893c1.792,0.329,3.638-0.126,5.071-1.25 c6.73-5.278,15.718-6.681,23.737-3.705c7.943,2.867,13.824,9.657,15.527,17.929c0.355,1.695,1.419,3.156,2.924,4.014 c1.588,0.919,3.492,1.119,5.237,0.549c8.152-2.712,17.128-0.974,23.679,4.585c6.449,5.401,9.616,13.772,8.357,22.089 c-0.269,1.692,0.216,3.418,1.326,4.723c1.165,1.398,2.881,2.219,4.701,2.25c8.571,0.179,16.421,4.838,20.683,12.277 c4.233,7.291,4.334,16.267,0.268,23.652c-0.838,1.492-0.982,3.277-0.393,4.884c0.585,1.61,1.824,2.897,3.41,3.545l0.192,0.076 c7.932,3.052,13.688,10.033,15.172,18.401c1.484,8.368-1.52,16.903-7.918,22.497c-1.314,1.124-2.073,2.766-2.076,4.496 c-0.004,1.73,0.748,3.375,2.058,4.504c6.405,5.591,9.415,14.127,7.934,22.499c-1.481,8.372-7.237,15.357-15.171,18.412 c-1.673,0.625-2.99,1.949-3.607,3.625c-0.585,1.59-0.45,3.357,0.37,4.839c4.087,7.395,3.994,16.392-0.245,23.701 C392.129,288.383,391.739,288.728,391.448,289.167z"></path> <path d="M256.002,493.78c-26.27-0.033-52.349-4.466-77.155-13.114l-9.417,16.314c55.991,19.946,117.153,19.946,173.144,0 l-9.417-16.314C308.351,489.314,282.272,493.746,256.002,493.78z"></path> <path d="M371.725,300.195c-1.826,0.031-3.547,0.854-4.719,2.254c-1.101,1.291-1.588,2.996-1.335,4.674 c1.275,8.331-1.892,16.723-8.353,22.134c-6.53,5.548-15.48,7.292-23.616,4.603c-1.758-0.602-3.69-0.41-5.295,0.527 c-1.504,0.856-2.568,2.316-2.924,4.009c-1.704,8.273-7.587,15.065-15.531,17.933c-8.013,2.973-16.995,1.57-23.719-3.705 c-1.437-1.124-3.286-1.579-5.08-1.25c-0.441,0.09-0.872,0.222-1.289,0.394l83.092,144.003l15.214-69.933 c0.544-2.522,2.129-4.696,4.362-5.987c2.234-1.291,4.909-1.578,7.365-0.79l68.169,21.888L376.295,299.49 C374.797,299.866,373.267,300.103,371.725,300.195z"></path> </g> </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                        </div>
+                        <div class="col-xl-9 col-md-9">
+                            <p class="question">Почему именно ваши пижамы ?</p>
+                            <p class="answer">Достаточно надеть перед сном нашу бархатную пижаму – майку со штанами или шортами, и королевские сны с придворными рыцарями и помпезными балами вам обеспечены.
+                                <br/><br/>
+                                Высококлассный материал бархат, из которого изготовлен комплект-тройка, а также удобный крой и качественный пошив обеспечат максимальное удобство и ощущение нежной грации.
+                                </p>
+                        </div>
+                        <div class="separator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="rewievs" class="reviews-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2>Отзывы о нас</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-4 col-md-6 text-center">
+                            <img src="img/rewiev1.jpg" ondragstart="return false;" alt="rewiev">
+                        </div>
+                        <div class="col-xl-4 col-md-6 text-center">
+                            <img src="img/rewiev2.jpg" ondragstart="return false;" alt="rewiev">
+                        </div>
+                        <div class="col-xl-4 col-md-6 text-center">
+                            <img src="img/rewiev3.jpg" ondragstart="return false;" alt="rewiev">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="discount-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 d-flex flex-column align-items-center col-md-5">
+                    <p class="discount-title discount-title-end text-center">
+                        Бархатные пижамные комплекты
+                    </p>
+                    <p class="addition text-center">Не упусти возможность заказать по акционной цене</p>
+                    <div class="discount-price">
+                        <p>Старая цена - <s>999 грн</s></p>
+                        <p>Новая цена - 670 грн</p>
+                    </div>
+                    <button type="button" class="btn order-button desktop-button" data-toggle="modal" data-target="#Order">Заказать пижамку</button>
+                </div>
+                <div class="col-xl-6 col-md-7 text-center">
+                    <img class="first-img" src="img/first.jpg" width="535px" alt="">
+                </div>
+                <div class="mobile-discount-button col-12 text-center">
+                    <button type="button" class="btn order-button" data-toggle="modal" data-target="#Order">Получить скидку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-3">
+                    <p class="footer-big-text">Остались вопросы?</p>
+                    <p>Пишите или звоните</p>
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <p>Наш телефон:</p>
+                    <p class="footer-big-text"><a href="tel:+380976211410" title="Позвонить" target="_blank">+38 (097) 621 1410</a></p>
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <p>Наш email:</p>
+                    <p class="footer-big-text"><a href="mailto:pijamasite@gmail.com"  title="Email" target="_blank">pijamasite@gmail.com</a></p>
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <p>Быстрая связь:</p>
+                    <div class="fast-connection d-flex">
+                        <div class="viber">
+                            <a href="viber://add?number=380976211410"  title="Viber" target="_blank"><img src="img/icon-viber.png" alt="Viber"></a>
+                        </div>
+                        <div class="telegram ml-3">
+                            <a href="https://t.me/kamluk"  title="Telegram" target="_blank"><img src="img/icon-telegram.png" alt="Telegram"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="js/main.js"></script> 
+</body>
+</html>

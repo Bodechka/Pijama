@@ -1,0 +1,843 @@
+@import 'fonts.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #000;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+.order-button{
+    background-color: #FA6775;
+    border-radius: 29px;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    padding: 10px 30px;
+    transition: 0.2s;
+}
+
+.order-button:active{
+    background-color: #2084D6;
+    transform: scale(.95);
+}
+
+/* MODAL */
+
+.modal-dialog{
+    width: 400px;
+    height: 475px;
+}
+
+.modal-content{
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica,Arial,sans-serif;
+    color: #111;
+}
+
+.modal-content h2{
+    font-size: 24.5px;
+    font-weight: bold;
+    padding-top: 40px;
+    margin-bottom: 0;
+}
+
+.modal-body{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.modal-content form label{
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.modal-content form input, 
+.modal-content form input::placeholder,
+.modal-content form select
+{
+    font-size: 14px;
+}
+
+.form-button{
+    margin-top: 20px;
+}
+
+.form-button button{
+    padding: 10px 20px;
+    line-height: 1em;
+    font-weight: bold;
+}
+
+.form-button button:hover{
+    background-color: #F44336;
+}
+
+.required{
+    font-size: 18px;
+    color: #c00;
+}
+
+/* HEADER */
+header{
+    padding: 28px 0 22px 0;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0 10px 0 35px;
+}
+
+.menu li{
+    display: block;
+}
+
+.menu li a{
+    color: #333;
+    font-family: "Roboto";
+    font-size: 20px;
+}
+
+.menu li a:hover{
+    text-decoration: none;
+    color: #333;
+}
+
+.menu-icon{
+    display: none;
+}
+
+.delivery{
+    margin-left: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.contacts{
+    margin-left: -15px;
+    font-family: "Roboto";
+}
+
+.tel{
+    font-size: 18px;
+    color: #333;
+}
+
+.schedule{
+    font-size: 14px;
+    color: #111;
+}
+
+/*  DISCOUNT */
+.discount-bar{
+    padding-top: 75px;
+    padding-bottom: 59px;
+}
+
+.discount-title{
+    font-family: georgia, times, 'times new roman', serif;
+    font-size: 60px;
+    color: rgb(250, 103, 117);
+    margin: 0;
+}
+
+.discount-price p:first-child, .discount-price s{
+    color: rgb(250, 103, 117);
+}
+
+.discount-price{
+    margin-bottom: 30px;
+}
+
+.discount-price p, .addition{
+    font-family: "Roboto";
+    font-size: 30px;
+    color: rgb(5, 4, 4);
+    margin: 0;
+}
+
+.first-img{
+    border-radius: 49px;
+}
+
+.discount-title-end{
+    font-size: 48px;
+}
+
+.addition{
+    padding: 20px 0;
+}
+
+.mobile-discount-button{
+    display: none;
+}
+
+/* OUR PIJAMS */
+
+.our-pijams-bar h2{
+    font-family: georgia, times, 'times new roman', serif;
+    font-size: 42px;
+    color: #fa6775;
+    padding: 60px 0;
+}
+
+.our-pijams-bar .row{
+    font-family: "Open Sans";
+    color: #111;
+    font-weight: bold;
+}
+
+.our-bathrobes{
+    margin-top: 100px;
+}
+
+.pijama-item{
+    outline: none;
+}
+
+.pijama-item-title{
+    font-size: 24px;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.pijama-item-descr{
+    font-size: 18px;
+}
+
+.pijama-price{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pijama-price s{
+    color: #FA6775;
+}
+
+.pijama-image{
+    display: flex;
+}
+
+.pijama-image img{
+    width: 300px;
+}
+
+/* CAROUSEL */
+
+/* .carousel{
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.carousel a{
+    display: flex;
+    position: absolute;
+}
+
+.carousel a span{
+    width: 45px;
+    height: 45px;
+} */
+
+.multiple-items{
+    position: relative;
+}
+
+/* .carousel-control-prev{
+    top: 50%;
+    transform: translateY(-50%);
+    left: -12%;
+} */
+
+.slick-prev{
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: none;
+    color: transparent;
+    background-image: url(../img/prev.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 40%;
+    left: -40px;
+    transform: translateY(-50%);
+    z-index: 100;
+    outline: none;
+}
+
+.slick-prev:focus{
+    outline: none;
+}
+
+/* .carousel-control-next{
+    top: 50%;
+    transform: translateY(-50%);
+    right: -12%;
+    line-height: 100%;
+} */
+
+.slick-next{
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: none;
+    color: transparent;
+    background-image: url(../img/next.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 40%;
+    right: -40px;
+    transform: translateY(-50%);
+    z-index: 100;
+    outline: none;
+}
+
+.slick-next:focus{
+    outline: none;
+}
+
+/* .carousel-indicators{
+    position: absolute;
+    bottom: -8%;
+}
+
+.carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .3);
+    margin-right: 9px;
+    margin-left: 0;
+}
+
+.carousel-indicators li:last-child{
+    margin-right: 0;
+}
+
+.carousel-indicators li.active{
+    background: rgba(0, 0, 0, 1);
+} */
+
+.slide-dots{
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 0 0;
+}
+
+.slide-dots li button{
+    background: none;
+    border: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .3);
+    margin-left: 0;
+    font-size: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.slide-dots li{
+    margin-right: 9px;
+}
+
+.slide-dots li:last-child{
+    margin-right: 0;
+}
+
+li.slick-active button{
+    background: rgba(0, 0, 0, 1);
+}
+
+
+/* ADVANTAGES */
+.circle{
+    width: 108px;
+    height: 108px;
+    border: 3px rgba(250,103,117,1) solid;
+    border-radius: 50%;
+}
+
+.advantages-bar h2{
+    font-family: "Open Sans";
+    font-size: 42px;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+div.circle + p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.advantage p{
+    font-size: 16px;
+    color: #222;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0;
+}
+
+/* PARTNERS */
+
+.partners-bar{
+    margin: 80px 0;
+}
+
+.partners-bar h2{
+    padding-top: 40px;
+    font-family: "Open Sans";
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* PHOTO */
+.photo-bar h2{
+    font-family: georgia, times, 'times new roman', serif;
+    font-size: 42px;
+    color: #fa6775;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.photo-wrap {
+    width: 170px;
+    height: 254px;
+    overflow: hidden;
+    outline: none;
+}
+
+.photo-slide{
+    margin-bottom: 60px;
+}
+
+/* FAQ */
+.faq-bar{
+    font-family: "Roboto";
+    color: #111;
+}
+
+.faq-bar h2{
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 120px;
+}
+
+.separator{
+    width: 100%;
+    border-top: 1px solid #777;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.question{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.answer{
+    font-size: 18px;
+}
+
+/* REWIEVS */
+.reviews-bar{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.reviews-bar h2{
+    font-family: georgia, times, 'times new roman', serif;
+    font-size: 48px;
+    color: rgb(250, 103, 117);
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+/* FOOTER */
+footer{
+    font-family: "Open Sans";
+    color: #222;
+    padding: 40px 0;
+}
+
+.footer-big-text{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* MEDIA */
+
+@media (max-width: 1200px){
+
+    nav ul{
+        margin-left: 10px;
+    }
+
+    .menu li a{
+        font-size: 18px;
+    }
+
+    .delivery{
+        font-size: 14px;
+        margin-left: 0;
+    }
+
+    .contacts{
+        margin-left: 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .contacts a{
+        font-size: 14px;
+    }
+
+    .discount-title{
+        font-size: 32px;
+    }
+
+    .discount-price p{
+        font-size: 20px;
+    }
+    
+    .slick-next{
+        right: -20px;
+    }
+
+    .slick-prev{
+        left: -20px;
+    }
+
+    .order-button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .first-img {
+        width: 380px;
+        margin-top: 0;
+    }   
+
+    .advantage{
+        margin-top: 20px;
+    }
+
+    .advantages-bar h2 {
+        font-size: 30px;
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+
+    .partners-bar {
+        margin: 40px 0;
+    }
+
+    .partners-bar h2 {
+        padding-top: 10px;
+        font-size: 30px;
+    }
+
+    .partners-bar img[alt="Nova Pochta"]{
+        height: 80px;
+    }
+
+    .partners-bar img[alt="Privat Bank"]{
+        height: 120px;
+    }
+
+    .photo-slide {
+        margin-bottom: 40px;
+    }
+
+    .faq-bar h2 {
+        font-size: 30px;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .reviews-bar{
+        padding: 40px 0;
+    }
+
+    .reviews-bar h2 {
+        font-size: 34px;
+        padding-bottom: 0px;
+    }
+
+    .reviews-bar img {
+        width: 250px;
+        margin-top: 20px;
+    }
+
+    .discount-price p, .addition {
+        font-size: 20px;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+
+    .footer-big-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px){
+
+    header{
+        padding-bottom: 40px;
+    }
+
+    .contacts{
+        margin-top: 30px;
+        font-size: 30px;    
+    }
+
+    .contacts a{
+        font-size: 20px;
+    }
+
+    .delivery{
+        padding: 20px;
+    }
+
+    .discount-bar {
+        padding-top: 20px;
+    }
+
+    .delivery {
+        margin-left: 0;
+        padding-top: 0;
+        font-size: 14px;
+    }
+
+    .delivery-wrap{
+        margin-top: 20px;
+        order: 3;
+    }
+
+    .discount-bar{
+        padding-top: 0;
+        padding-bottom: 20px;
+    }
+
+    .discount-title {
+        font-size: 30px;
+        padding-top: 20px;
+    }
+
+    .discount-price p{
+        font-size: 24px;
+    }
+
+    .discount-price p:first-child{
+        margin-top: 20px;
+    }
+
+    .first-img {
+        width: 280px;
+        margin-top: 0;
+    }
+
+    .desktop-button{
+        display: none;
+    }
+
+    .mobile-discount-button{
+        display: block;
+        margin-top: 20px;
+        padding: 10px 15px;
+    }
+
+    .partners-bar h2 {
+        padding: 20px 0;
+        font-size: 30px;
+    }
+
+    .question {
+        text-align: center;
+    }
+
+    .addition{
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 20px 0;
+    }
+
+    footer .container .row > div{
+        text-align: center;
+    }
+
+    .fast-connection{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px){
+    .modal-dialog {
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px){
+
+    .modal-dialog{
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    nav{
+        display: none;
+    }
+
+    /* nav{
+        width: 100vh;
+        height: 100vh;
+        background-color: #777;
+        position: absolute;
+        top: 0;
+        z-index: 100;
+    } */
+    
+    .menu-icon{
+        display: block;
+        background: none;
+        border: none;
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-icon img{
+        width: 100%;
+    }
+
+    .delivery {
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+    .delivery-wrap{
+        margin-top: 20px;
+        order: 3;
+    }
+
+    .discount-bar{
+        padding-top: 0;
+        padding-bottom: 20px;
+    }
+
+    .discount-title {
+        font-size: 24px;
+        padding-top: 20px;
+    }
+
+    .discount-price p, .addition {
+        font-size: 18px;
+    }
+
+    .discount-price p:first-child{
+        margin-top: 20px;
+    }
+
+    .first-img {
+        width: 280px;
+        margin-top: 0;
+    }
+
+    .desktop-button{
+        display: none;
+    }
+
+    .mobile-discount-button{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .our-pijams-bar h2{
+        font-size: 30px;
+        padding: 20px 0;
+    }
+
+    .advantages-bar h2 {
+        font-size: 24px;
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .partners-bar {
+        margin-top: 30px;
+    }
+
+    .partners-bar h2 {
+        font-size: 24px;
+    }
+
+    .partners-bar img{
+        margin-top: 20px;
+    }
+
+    .photo-bar h2 {
+        font-size: 30px;
+        margin: 20px 0;
+    }
+
+    .faq-bar h2 {
+        font-size: 24px;
+    }
+
+    .question {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .answer {
+        font-size: 16px;
+    }
+
+    .reviews-bar {
+        padding-top: 15px
+    }
+
+    .reviews-bar h2 {
+        font-size: 24px;
+        padding-bottom: 0px;
+    }
+
+    .reviews-bar img {
+        width: 220px;
+        margin-top: 20px;
+    }
+
+    .addition {
+        padding: 10px 0 0 0;
+    }
+
+    footer {
+        padding: 20px 0;
+    }
+
+    footer .container .row > div{
+        text-align: center;
+    }
+
+    .fast-connection{
+        justify-content: center;
+    }
+}
